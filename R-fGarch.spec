@@ -4,7 +4,7 @@
 #
 Name     : R-fGarch
 Version  : 3042.83
-Release  : 1
+Release  : 2
 URL      : https://cran.r-project.org/src/contrib/fGarch_3042.83.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fGarch_3042.83.tar.gz
 Summary  : Rmetrics - Autoregressive Conditional Heteroskedastic Modelling
