@@ -4,7 +4,7 @@
 #
 Name     : R-fGarch
 Version  : 3042.83
-Release  : 3
+Release  : 4
 URL      : https://cran.r-project.org/src/contrib/fGarch_3042.83.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fGarch_3042.83.tar.gz
 Summary  : Rmetrics - Autoregressive Conditional Heteroskedastic Modelling
@@ -17,7 +17,7 @@ Requires: R-timeDate
 BuildRequires : R-fBasics
 BuildRequires : R-fastICA
 BuildRequires : R-timeDate
-BuildRequires : clr-R-helpers
+BuildRequires : buildreq-R
 
 %description
 analyze and model heteroskedastic behavior in financial time
@@ -39,11 +39,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1530461549
+export SOURCE_DATE_EPOCH=1535988444
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1530461549
+export SOURCE_DATE_EPOCH=1535988444
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -61,9 +61,9 @@ echo "FFLAGS = $FFLAGS -march=haswell -ftree-vectorize " >> ~/.R/Makevars
 echo "CXXFLAGS = $CXXFLAGS -march=haswell -ftree-vectorize " >> ~/.R/Makevars
 R CMD INSTALL --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library fGarch
 for i in `find %{buildroot}/usr/lib64/R/ -name "*.so"`; do mv $i $i.avx2 ; mv $i.avx2 ~/.stash/; done
-echo "CFLAGS = $CFLAGS -march=skylake-avx512 -ftree-vectorize -mprefer-vector-width=512 " > ~/.R/Makevars
-echo "FFLAGS = $FFLAGS -march=skylake-avx512 -ftree-vectorize -mprefer-vector-width=512 " >> ~/.R/Makevars
-echo "CXXFLAGS = $CXXFLAGS -march=skylake-avx512 -ftree-vectorize -mprefer-vector-width=512  " >> ~/.R/Makevars
+echo "CFLAGS = $CFLAGS -march=skylake-avx512 -ftree-vectorize " > ~/.R/Makevars
+echo "FFLAGS = $FFLAGS -march=skylake-avx512 -ftree-vectorize " >> ~/.R/Makevars
+echo "CXXFLAGS = $CXXFLAGS -march=skylake-avx512 -ftree-vectorize " >> ~/.R/Makevars
 R CMD INSTALL --preclean --install-tests --no-test-load --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library fGarch
 for i in `find %{buildroot}/usr/lib64/R/ -name "*.so"`; do mv $i $i.avx512 ; mv $i.avx512 ~/.stash/; done
 echo "CFLAGS = $CFLAGS -ftree-vectorize " > ~/.R/Makevars
@@ -110,6 +110,9 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/fGarch/html/R.css
 /usr/lib64/R/library/fGarch/libs/symbols.rds
 /usr/lib64/R/library/fGarch/unitTests/Makefile
+/usr/lib64/R/library/fGarch/unitTests/report.html
+/usr/lib64/R/library/fGarch/unitTests/report.txt
+/usr/lib64/R/library/fGarch/unitTests/reportSummary.txt
 /usr/lib64/R/library/fGarch/unitTests/runTests.R
 /usr/lib64/R/library/fGarch/unitTests/runit.formula-methods.R
 /usr/lib64/R/library/fGarch/unitTests/runit.garch-methods.R
