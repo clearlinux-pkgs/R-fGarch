@@ -4,19 +4,18 @@
 #
 Name     : R-fGarch
 Version  : 3042.83.1
-Release  : 10
+Release  : 11
 URL      : https://cran.r-project.org/src/contrib/fGarch_3042.83.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fGarch_3042.83.1.tar.gz
 Summary  : Rmetrics - Autoregressive Conditional Heteroskedastic Modelling
 Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-fGarch-lib = %{version}-%{release}
-Requires: R-fBasics
-Requires: R-fastICA
-Requires: R-timeDate
+Requires: R-timeSeries
 BuildRequires : R-fBasics
 BuildRequires : R-fastICA
 BuildRequires : R-timeDate
+BuildRequires : R-timeSeries
 BuildRequires : buildreq-R
 
 %description
@@ -39,10 +38,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549030771
+export SOURCE_DATE_EPOCH=1552900518
 
 %install
-export SOURCE_DATE_EPOCH=1549030771
+export SOURCE_DATE_EPOCH=1552900518
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -78,8 +77,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library fGarch|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  fGarch || :
 
 
 %files
@@ -108,11 +106,8 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/fGarch/help/paths.rds
 /usr/lib64/R/library/fGarch/html/00Index.html
 /usr/lib64/R/library/fGarch/html/R.css
-/usr/lib64/R/library/fGarch/libs/symbols.rds
+/usr/lib64/R/library/fGarch/tests/doRUnit.R
 /usr/lib64/R/library/fGarch/unitTests/Makefile
-/usr/lib64/R/library/fGarch/unitTests/report.html
-/usr/lib64/R/library/fGarch/unitTests/report.txt
-/usr/lib64/R/library/fGarch/unitTests/reportSummary.txt
 /usr/lib64/R/library/fGarch/unitTests/runTests.R
 /usr/lib64/R/library/fGarch/unitTests/runit.formula-methods.R
 /usr/lib64/R/library/fGarch/unitTests/runit.garch-methods.R
