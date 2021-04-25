@@ -4,7 +4,7 @@
 #
 Name     : R-fGarch
 Version  : 3042.83.2
-Release  : 28
+Release  : 29
 URL      : https://cran.r-project.org/src/contrib/fGarch_3042.83.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fGarch_3042.83.2.tar.gz
 Summary  : Rmetrics - Autoregressive Conditional Heteroskedastic Modelling
@@ -42,10 +42,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1589584768
+export SOURCE_DATE_EPOCH=1619367610
 
 %install
-export SOURCE_DATE_EPOCH=1589584768
+export SOURCE_DATE_EPOCH=1619367610
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -136,4 +136,3 @@ R CMD check --no-manual --no-examples --no-codoc fGarch || :
 %defattr(-,root,root,-)
 /usr/lib64/R/library/fGarch/libs/fGarch.so
 /usr/lib64/R/library/fGarch/libs/fGarch.so.avx2
-/usr/lib64/R/library/fGarch/libs/fGarch.so.avx512
