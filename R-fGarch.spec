@@ -4,7 +4,7 @@
 #
 Name     : R-fGarch
 Version  : 4021.87
-Release  : 42
+Release  : 43
 URL      : https://cran.r-project.org/src/contrib/fGarch_4021.87.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/fGarch_4021.87.tar.gz
 Summary  : Rmetrics - Autoregressive Conditional Heteroskedastic Modelling
